@@ -11,13 +11,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace WinDevWhiteElephant
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         ObservableCollection<CustomDataObject> Items;
@@ -175,21 +170,6 @@ namespace WinDevWhiteElephant
 
             Players = tempList2;
         }
-
-        //private static Random rng = new Random();
-
-        //public static void Shuffle<T>(this IList<T> list)
-        //{
-        //    int n = list.Count;
-        //    while (n > 1)
-        //    {
-        //        n--;
-        //        int k = rng.Next(n + 1);
-        //        T value = list[k];
-        //        list[k] = list[n];
-        //        list[n] = value;
-        //    }
-        //}
 
         private void BasicGridView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -390,11 +370,14 @@ namespace WinDevWhiteElephant
 
         public static string GetGiverNameFromFile(string fileName)
         {
-            var i = fileName.Split('_');
+            // File string format : "<photo name>_<giver first name> <giver last name>.<filetype>"
+            var fileStrings = fileName.Split('_');
 
-            var j = i[i.Count() - 1].Split('.');
+            // Get the <giver first name> <giver last name>.<filetype> and split on the period
+            var giverNameAndFileType = fileStrings[fileStrings.Count() - 1].Split('.');
 
-            return j[0];
+            // Return the string "<giver first name> <giver last name>"
+            return giverNameAndFileType[0];
         }
     }
 
