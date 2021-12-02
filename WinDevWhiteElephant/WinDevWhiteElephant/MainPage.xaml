@@ -47,7 +47,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:Key="ImageTemplate" x:DataType="local:CustomDataObject">
                     <StackPanel x:Name="connectedElement">
-                        <TextBlock Text="{x:Bind Title, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" MaxHeight="200" MaxWidth="300" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="{x:Bind Title, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" MaxHeight="200" MaxWidth="200" TextWrapping="WrapWholeWords"/>
                         <Image Stretch="Uniform" Source="{x:Bind ImageLocation}" MaxHeight="200" MaxWidth="300"/>
 
                         <Grid>
@@ -92,7 +92,7 @@
                     <Image Stretch="Uniform" Source="{Binding ImageLocation}" MaxWidth="600" MaxHeight="400" ToolTipService.ToolTip="{Binding Giver}" />
                     <!--<TextBlock Text="{Binding ImageLocation}" Style="{ThemeResource HeaderTextBlockStyle}" Margin="12" VerticalAlignment="Center" />-->
                     <Button Click="BackButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="40" Margin="5" 
-                            ToolTipService.ToolTip="Close" AutomationProperties.Name="Close">
+                            ToolTipService.ToolTip="Close" AutomationProperties.Name="Close" Background="{ThemeResource SystemChromeAltHighColor}">
                         <Button.Content>
                             <SymbolIcon Symbol="Clear" />
                         </Button.Content>
