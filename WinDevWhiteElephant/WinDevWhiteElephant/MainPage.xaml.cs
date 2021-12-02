@@ -18,7 +18,7 @@ namespace WinDevWhiteElephant
         ObservableCollection<CustomDataObject> Items;
         List<String> Players;
 
-        int CurrentPlayerNumber = -1;
+        int CurrentPlayerNumber = 0;
 
         object _storedItem;
         public MainPage()
@@ -277,17 +277,16 @@ namespace WinDevWhiteElephant
 
         private void NextPlayerButton_Click(object sender, RoutedEventArgs e)
         {
+            CurrentPlayerTextBlock.Text = Players[CurrentPlayerNumber];
+            CurrentPlayerCountTextBlock.Text = (CurrentPlayerNumber + 1).ToString();
+            
             CurrentPlayerNumber++;
 
-            if (CurrentPlayerNumber == Players.Count - 1)
+            if (CurrentPlayerNumber == Players.Count)
             {
                 (sender as Button).IsEnabled = false;
                 return;
             }
-
-
-            CurrentPlayerTextBlock.Text = Players[CurrentPlayerNumber];
-            CurrentPlayerCountTextBlock.Text = (CurrentPlayerNumber + 1).ToString();
         }
     }
 
