@@ -21,7 +21,7 @@
             <TextBlock x:Name="CurrentPlayerCountTextBlock" VerticalAlignment="Center" FontWeight="Bold" Margin="6,0" Width="30" />
             <Button Content="Go To Next Player" Click="NextPlayerButton_Click" />
         </StackPanel>
-        
+
         <GridView
             x:Name="BasicGridView"
             IsItemClickEnabled="True"
@@ -33,6 +33,7 @@
             <GridView.ItemContainerStyle>
                 <Style TargetType="GridViewItem">
                     <Setter Property="Margin" Value="5, 5, 5, 5"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
                 </Style>
             </GridView.ItemContainerStyle>
 
@@ -46,11 +47,18 @@
 
             <GridView.ItemTemplate>
                 <DataTemplate x:Key="ImageTemplate" x:DataType="local:CustomDataObject">
-                    <StackPanel x:Name="connectedElement">
-                        <TextBlock Text="{x:Bind Title, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" MaxHeight="200" MaxWidth="200" TextWrapping="WrapWholeWords"/>
-                        <Image Stretch="Uniform" Source="{x:Bind ImageLocation}" MaxHeight="200" MaxWidth="300"/>
+                    <Grid  x:Name="connectedElement" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                        <Grid>
+                        <TextBlock Grid.Row="0" Text="{x:Bind Title, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" MaxHeight="200" MaxWidth="200" TextWrapping="WrapWholeWords"/>
+                        <Image Grid.Row="1" Stretch="Uniform" Source="{x:Bind ImageLocation}" MaxHeight="200" MaxWidth="300"/>
+
+                        <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
@@ -66,8 +74,9 @@
                             <TextBlock Text="Receiver:" Margin="0,0,6,0" Grid.Row="1" FontWeight="Bold"/>
                             <TextBlock Text="{x:Bind Receiver, Mode=OneWay}" Grid.Row="1" Grid.Column="1" />
                         </Grid>
-                        <TextBlock Text="{x:Bind Giver}" Visibility="Collapsed"/>
-                    </StackPanel>
+                        <TextBlock Grid.Row="3" Text="{x:Bind Giver}" Visibility="Collapsed"/>
+                    </Grid>
+
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
@@ -76,8 +85,6 @@
             <Button Content="Clear Save Data" Click="ClearSaveDataButton_Click" VerticalAlignment="Bottom" FontSize="8" Background="Transparent" />
             <Button Content="Print Save Data" Click="PrintButton_Click" VerticalAlignment="Bottom" FontSize="8" Background="Transparent" />
         </StackPanel>
-
-
 
         <Grid x:Name="SmokeGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" Grid.RowSpan="3" >
             <Grid.Background>
