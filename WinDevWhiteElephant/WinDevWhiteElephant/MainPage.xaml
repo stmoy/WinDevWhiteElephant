@@ -101,7 +101,7 @@
                     <Image Stretch="Uniform" Source="{Binding ImageLocation}" MaxWidth="600" MaxHeight="400" ToolTipService.ToolTip="{Binding Giver}" />
                     <!--<TextBlock Text="{Binding ImageLocation}" Style="{ThemeResource HeaderTextBlockStyle}" Margin="12" VerticalAlignment="Center" />-->
                     <Button Click="BackButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="40" Margin="5" 
-                            ToolTipService.ToolTip="Close" AutomationProperties.Name="Close" Background="{ThemeResource SystemChromeAltHighColor}">
+                            ToolTipService.ToolTip="Close" AutomationProperties.Name="Close" >
                         <Button.Content>
                             <SymbolIcon Symbol="Clear" />
                         </Button.Content>
