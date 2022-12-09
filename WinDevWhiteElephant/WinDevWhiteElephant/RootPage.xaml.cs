@@ -2,6 +2,10 @@
 using Windows.UI.Xaml.Controls;
 using MUX = Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 
 namespace WinDevWhiteElephant
 {
@@ -11,6 +15,8 @@ namespace WinDevWhiteElephant
         {
             this.InitializeComponent();
         }
+
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -44,5 +50,20 @@ namespace WinDevWhiteElephant
             RootTabView.SelectedIndex = 0;
         }
 
+        private void RootTabView_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            // Extend into the title bar
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.BackgroundColor = Colors.Transparent;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.InactiveBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            Window.Current.SetTitleBar(CustomDragRegion);
+            CustomDragRegion.MinWidth = 188;
+        }
     }
 }

@@ -8,5 +8,9 @@
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <controls:TabView x:Name="RootTabView" Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsAddTabButtonVisible="False" />
+    <controls:TabView x:Name="RootTabView" Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsAddTabButtonVisible="False" Loaded="RootTabView_Loaded" >
+        <controls:TabView.TabStripFooter>
+            <Grid x:Name="CustomDragRegion" Background="Transparent" />
+        </controls:TabView.TabStripFooter>
+    </controls:TabView>
 </Page>
