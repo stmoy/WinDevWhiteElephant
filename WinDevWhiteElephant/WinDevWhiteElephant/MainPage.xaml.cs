@@ -268,16 +268,6 @@ namespace WinDevWhiteElephant
             item.Title = (sender as TextBox).Text;
         }
 
-        private void ClearSaveDataButton_Click(object sender, RoutedEventArgs e)
-        {
-            ClearSaveState();
-        }
-
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
-        {
-            PrintState();
-        }
-
         private void NextPlayerButton_Click(object sender, RoutedEventArgs e)
         {
             CurrentPlayerTextBlock.Text = Players[CurrentPlayerNumber];

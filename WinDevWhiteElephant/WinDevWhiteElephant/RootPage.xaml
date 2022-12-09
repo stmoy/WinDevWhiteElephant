@@ -10,7 +10,26 @@
 
     <controls:TabView x:Name="RootTabView" Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsAddTabButtonVisible="False" Loaded="RootTabView_Loaded" >
         <controls:TabView.TabStripFooter>
-            <Grid x:Name="CustomDragRegion" Background="Transparent" />
+            <Grid>
+                <Grid x:Name="CustomDragRegion" Background="Transparent" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Padding="0,0,200,0">
+                    <Button Tapped="PrintButton_Tapped" HorizontalAlignment="Right" Margin="2" ToolTipService.ToolTip="Print Saved Data" Height="28">
+                        <Button.Content>
+                            <Viewbox>
+                                <SymbolIcon Symbol="Print" />
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
+                    <Button Tapped="ClearButton_Tapped" HorizontalAlignment="Right" Margin="2" ToolTipService.ToolTip="Clear Saved Data" Height="28">
+                        <Button.Content>
+                            <Viewbox>
+                                <SymbolIcon Symbol="Delete" />
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </controls:TabView.TabStripFooter>
     </controls:TabView>
 </Page>

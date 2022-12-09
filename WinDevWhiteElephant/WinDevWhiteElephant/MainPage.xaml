@@ -83,11 +83,6 @@
             </GridView.ItemTemplate>
         </GridView>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Clear Save Data" Click="ClearSaveDataButton_Click" VerticalAlignment="Bottom" FontSize="8" Background="Transparent" />
-            <Button Content="Print Save Data" Click="PrintButton_Click" VerticalAlignment="Bottom" FontSize="8" Background="Transparent" />
-        </StackPanel>
-
         <Grid x:Name="SmokeGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" Grid.RowSpan="3" >
             <Grid.Background>
                 <SolidColorBrush Color="{ThemeResource SystemChromeAltHighColor}" Opacity="0.8" />

@@ -65,5 +65,17 @@ namespace WinDevWhiteElephant
             Window.Current.SetTitleBar(CustomDragRegion);
             CustomDragRegion.MinWidth = 188;
         }
+
+        private void PrintButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            var mainPage = (((RootTabView.TabItems[0] as TabViewItem).Content as Frame).Content as MainPage);
+            mainPage.PrintState();
+        }
+
+        private void ClearButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            var mainPage = (((RootTabView.TabItems[0] as TabViewItem).Content as Frame).Content as MainPage);
+            mainPage.ClearSaveState();
+        }
     }
 }
