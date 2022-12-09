@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using Windows.Foundation.Metadata;
+using Windows.System;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -30,9 +31,9 @@ namespace WinDevWhiteElephant
 
         public async void PrintState()
         {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile =
-                await storageFolder.CreateFileAsync("WinDevWhiteElephant.txt",
+            Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile textFile =
+                await localFolder.CreateFileAsync("WinDevWhiteElephant.txt",
                     Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
             System.Diagnostics.Debug.WriteLine("Saved Data");
@@ -65,13 +66,14 @@ namespace WinDevWhiteElephant
                 savedData += "    Steals: " + item.Steals;
                 savedData += newLine;
 
-
                 i++;
             }
 
             System.Diagnostics.Debug.WriteLine(savedData);
 
-            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, savedData);
+            await FileIO.WriteTextAsync(textFile, savedData);
+
+            await Launcher.LaunchFileAsync(textFile);
         }
 
         public void LoadState()
@@ -161,7 +163,7 @@ namespace WinDevWhiteElephant
 
 
             Players = new List<String>();
-            foreach(var item in Items)
+            foreach (var item in Items)
             {
                 Players.Add(item.Giver);
             }
@@ -279,7 +281,7 @@ namespace WinDevWhiteElephant
         {
             CurrentPlayerTextBlock.Text = Players[CurrentPlayerNumber];
             CurrentPlayerCountTextBlock.Text = (CurrentPlayerNumber + 1).ToString();
-            
+
             CurrentPlayerNumber++;
 
             if (CurrentPlayerNumber == Players.Count)
