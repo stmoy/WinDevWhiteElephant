@@ -32,9 +32,10 @@ namespace WinDevWhiteElephant
         public async void PrintState()
         {
             Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile textFile =
-                await localFolder.CreateFileAsync("WinDevWhiteElephant.txt",
-                    Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+            string fileName = String.Format("VirtualWhiteElephant_{0} {1} {2}.txt", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Year);
+
+            Windows.Storage.StorageFile textFile = await localFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
             System.Diagnostics.Debug.WriteLine("Saved Data");
 
