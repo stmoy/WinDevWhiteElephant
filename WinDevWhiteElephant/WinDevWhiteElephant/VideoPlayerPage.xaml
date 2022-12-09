@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <controls:WebView2 x:Name="VideoPlayer" />
+        <controls:WebView2 x:Name="VideoPlayer" Source="https://youtu.be/" />
         <ListView x:Name="VideosList" Grid.Column="1" IsItemClickEnabled="True" ItemClick="VideosList_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Video">
