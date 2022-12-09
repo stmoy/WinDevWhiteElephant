@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="WinDevWhiteElephant.VideoPlayerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinDevWhiteElephant"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <controls:WebView2 x:Name="VideoPlayer" />
+        <ListView x:Name="VideosList" Grid.Column="1" IsItemClickEnabled="True" ItemClick="VideosList_ItemClick">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Video">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
